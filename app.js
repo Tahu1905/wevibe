@@ -2,34 +2,72 @@ const playlists = [
   {
     name: "Chill Vibes",
     image: "download (1).jpg",
-    songs: [
-      {
-        name: "Shape of You",
-        artist: "Ed Sheeran",
-        file: "/music/shape.mp3",
-        image: "https://i.scdn.co/image/ab67616d0000b2732c8a3db49f7dc0e3f0e5c8cf"
-      },
-      {
-        name: "Blinding Lights",
-        artist: "The Weeknd",
-        file: "/music/blinding.mp3",
-        image: "https://i.scdn.co/image/ab67616d0000b273e0e197144582a6f3606b5c51"
-      }
-    ]
+    songs: [ /*...*/ ]
   },
   {
     name: "My Favorites",
     image: "pngtree-love-song-icon-png-image_2036603.jpg",
-    songs: [
-      {
-        name: "Levitating",
-        artist: "Dua Lipa",
-        file: "/music/levitating.mp3",
-        image: "https://i.scdn.co/image/ab67616d0000b2737eac173c065d1d9ef0c39e9e"
-      }
-    ]
+    songs: [ /*...*/ ]
+  },
+
+  // Thêm nhiều playlist mới:
+  {
+    name: "Focus Mode",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "EDM Hits",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Lo-fi Study",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Piano Classics",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Rainy Moods",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Jazz & Chill",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Kpop Top",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Vietnam Chill",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Pop 2024",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Rock Ballads",
+    image: "download (1).jpg",
+    songs: []
+  },
+  {
+    name: "Sleep Sounds",
+    image: "download (1).jpg",
+    songs: []
   }
 ];
+
 
 
 function loadSidebar() {
