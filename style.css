@@ -1,0 +1,638 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to top, #edeff0, #42a5f5);
+  color: #123;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+.container h2{
+  margin-left: 10px;
+}
+.search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.search-bar input {
+  width: 50%;
+  padding: 10px 40px 10px 36px; /* chừa chỗ bên trái cho icon */
+  border-radius: 20px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+  outline: none;
+  background: rgb(110, 183, 251);
+  color: #044;
+}
+
+.search-bar .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #066;
+  font-size: 16px;
+}
+
+.user-menu {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #afd3f4; /* tone mint nhẹ */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 1000;
+  width: 180px;
+}
+
+.dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  color: #054742;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.dropdown a:hover {
+  background-color: #82addb;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to top, #edeff0, #3195e8);
+  border-right: 2px solid rgba(0, 0, 0, 0.15);
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar-tabs-horizontal {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 20px;
+  justify-content: space-between;
+  
+}
+
+.sidebar-tabs-horizontal .tab {
+  flex: 1;
+  padding: 8px;
+  background: #6aa2eb;
+  border: none;
+  border-radius: 6px;
+  color: #044;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 12px;
+  text-align: center;
+}
+
+.sidebar-tabs-horizontal .tab:hover {
+  background: #8cc2ef;
+}
+
+.sidebar-tabs-horizontal .tab.active {
+  background: #93bbe5;
+  color: white;
+}
+
+
+
+.playlist-list li {
+  display: flex;
+  align-items: center;
+   margin-left: -20px;
+  gap: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.playlist-list li:hover {
+  background: #4ba6e3;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.playlist-list img {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+
+.content {
+  flex: 1;
+  background: linear-gradient(to top, #d6e5f1, #42a5f5);
+  padding: 20px;
+  overflow-y: auto;
+  padding-top: 30px;
+  padding-bottom: 100px; /* chừa khoảng dưới cho thanh bar */
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* nhỏ hơn */
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+.playlist-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #b2e2df;
+  text-align: center;
+  width: 100%;
+}
+
+.playlist-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.playlist-card .name {
+  font-size: 12px;
+  padding: 6px;
+  color: #044;
+}
+
+
+#song-list {
+  list-style: none;
+  padding: 0;
+}
+
+#song-list li {
+  background: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 5px solid #639ce6;
+  cursor: pointer;
+  color: #033;
+}
+.now-playing-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #99c5e7;
+  color: #123;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 40px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+.now-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 30%;
+}
+
+.now-left img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-info .title {
+  font-weight: bold;
+}
+
+.song-info .artist {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.now-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-btn {
+  font-size: 30px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.progress input[type="range"] {
+  flex: 1;
+  height: 4px;
+  accent-color: white;
+}
+
+.now-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 30%;
+  justify-content: flex-end;
+}
+
+.volume-bar {
+  width: 80px;
+  accent-color: white;
+}
+
+.active-icon {
+  color: #1db954; /* Màu xanh lá Spotify */
+}
+
+
+.hidden {
+  display: none;
+}
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 8px 16px;
+  background: #9acaf0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #044;
+  transition: background 0.2s;
+}
+
+.tab:hover {
+  background: #98b1eb;
+}
+
+.tab.active {
+  background: #8fc8eb;
+  color: white;
+}
+.playlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 5px;
+}
+.playlist-header h3{
+  margin-left: 3px;
+}
+
+#addBtn {
+  background-color: #4ca7f1;   /* Pastel xanh */
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;          /* Hình tròn */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #055;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+
+#addBtn:hover {
+  background-color: #85cbe9;   /* Hover đậm hơn */
+  color: white;
+}
+
+#addBtn svg {
+  width: 20px;
+  height: 20px;
+}
+.create-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: #f3fffd;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.create-panel.hidden {
+  transform: translateX(100%);
+}
+
+.create-panel input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.song-select-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.create-panel button {
+  padding: 8px;
+  background-color: #0aaba3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sidebar-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#homeBtn {
+  background-color: #3a9dee;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #055;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#homeBtn:hover {
+  background-color: #85cbe9;
+  color: white;
+}
+/* Popup nền phủ màn hình */
+.login-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.login-popup.hidden {
+  display: none;
+}
+
+/* Container chính của popup */
+#popupContainer {
+  background-color: #e3f2fd; /* pastel blue */
+  border-radius: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  color: #0d47a1;
+}
+
+#popupContainer p,
+#popupContainer span,
+#popupContainer a {
+  color: #0d47a1;
+}
+
+#popupContainer button {
+  background: linear-gradient(to right, #64b5f6, #42a5f5);
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#popupContainer button.hidden {
+  background-color: transparent;
+  border: 1px solid #90caf9;
+  color: #0d47a1;
+}
+
+#popupContainer form {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+#popupContainer input {
+  background-color: #ffffff;
+  border: 1px solid #bbdefb;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: #0d47a1;
+}
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: all 0.6s ease-in-out;
+}
+
+/* Sign In form hiển thị trước */
+.sign-in {
+  left: 0;
+  z-index: 2;
+  transform: translateX(0%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+#popupContainer.active .sign-in {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+/* SIGN UP FORM */
+.sign-up {
+  left: 0;
+  transform: translateX(100%);
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#popupContainer.active .sign-up {
+  transform: translateX(0%);
+  z-index: 2;
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+@keyframes move {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  border: 1px solid #90caf9;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+  color: #1565c0;
+  background-color: #ffffff;
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+
+#popupContainer.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  background: linear-gradient(to right, #90caf9, #42a5f5);
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+#popupContainer.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+#popupContainer.active .toggle-left {
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+#popupContainer.active .toggle-right {
+  transform: translateX(200%);
+}  
