@@ -13,6 +13,32 @@ body {
 .container h2{
   margin-left: 10px;
 }
+.wevibe-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.wevibe-logo {
+  width: 50px;  /* TO HƠN CHỮ */
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.wevibe-text {
+   font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-in-out;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  letter-spacing: 1px;
+}
+
+
 .search-bar {
   position: relative;
   width: 100%;
@@ -87,12 +113,30 @@ body {
 }
 
 .sidebar {
-  width: 250px;
+  width: 300px;
   background: linear-gradient(to top, #edeff0, #3195e8);
   border-right: 2px solid rgba(0, 0, 0, 0.15);
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+   display: flex;
+  flex-direction: column;
+  overflow: hidden; /* ẩn scroll ở ngoài */
+}
+.sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 4px; /* có chút padding để hiện scroll đẹp hơn */
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .sidebar-tabs-horizontal {
@@ -137,6 +181,7 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
+
 
 .playlist-list li:hover {
   background: #4ba6e3;

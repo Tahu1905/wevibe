@@ -11,7 +11,13 @@
 <body>
   <div class="container">
    <aside class="sidebar">
-  <h2>Wevibe</h2>
+<h2 class="wevibe-heading">
+  <img src="Wevibe-removebg-preview.png" alt="Wevibe Logo" class="wevibe-logo" />
+  <span class="wevibe-text">Wevibe</span>
+  
+</h2>
+
+
   <button id="homeBtn" onclick="goHome()" aria-label="Go Home">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
@@ -31,8 +37,9 @@
     </svg>
   </button>
 </div>
-
-<ul class="playlist-list" id="playlist-sidebar"></ul>
+ <div class="sidebar-scroll">
+    <ul class="playlist-list" id="playlist-sidebar"></ul>
+  </div>
 </aside>
 
     <main class="content">
