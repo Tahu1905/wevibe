@@ -2,16 +2,34 @@ const playlists = [
   {
     name: "Chill Vibes",
     image: "download (1).jpg",
-    songs: [ /*...*/ ]
+    songs: [
+      {
+        name: "Shape of You",
+        artist: "Ed Sheeran",
+        file: "/music/shape.mp3",
+        image: "https://i.scdn.co/image/ab67616d0000b2732c8a3db49f7dc0e3f0e5c8cf"
+      },
+      {
+        name: "Blinding Lights",
+        artist: "The Weeknd",
+        file: "/music/blinding.mp3",
+        image: "https://i.scdn.co/image/ab67616d0000b273e0e197144582a6f3606b5c51"
+      }
+    ]
   },
   {
     name: "My Favorites",
     image: "pngtree-love-song-icon-png-image_2036603.jpg",
-    songs: [ /*...*/ ]
+    songs: [
+      {
+        name: "Levitating",
+        artist: "Dua Lipa",
+        file: "/music/levitating.mp3",
+        image: "https://i.scdn.co/image/ab67616d0000b2737eac173c065d1d9ef0c39e9e"
+      }
+    ]
   },
-
-  // Thêm nhiều playlist mới:
-  {
+   {
     name: "Focus Mode",
     image: "download (1).jpg",
     songs: []
@@ -67,7 +85,6 @@ const playlists = [
     songs: []
   }
 ];
-
 
 
 function loadSidebar() {
