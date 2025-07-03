@@ -132,15 +132,35 @@ function renderPlaylistGrid() {
 }
 
 function playSong(song) {
-  // Cập nhật phần Now Playing
+  // Now playing bar
   document.getElementById("now-title").textContent = song.name;
   document.getElementById("now-artist").textContent = song.artist;
   document.getElementById("now-album").src = song.image;
 
-  // Phát nhạc (nếu có)
   const audio = document.getElementById("player");
   audio.src = song.file;
   audio.play();
+
+  // 👉 Panel bên phải
+  document.getElementById("right-song-img").src = song.image;
+  document.getElementById("right-song-title").textContent = song.name;
+  document.getElementById("right-song-artist").textContent = song.artist;
+  document.getElementById("right-audio-player").src = song.file;
+
+  document.getElementById("right-lyrics").textContent = getLyricsFor(song.name, song.artist);
+
+  document.getElementById("rightSongPanel").classList.remove("hidden");
+}
+
+function getLyricsFor(name, artist) {
+  if (name === "Shape of You") {
+    return `The club isn't the best place to find a lover\nSo the bar is where I go...`;
+  } else if (name === "Blinding Lights") {
+    return `I said, ooh, I'm blinded by the lights\nNo, I can't sleep until I feel your touch`;
+  } else if (name === "Levitating") {
+    return `If you wanna run away with me\nI know a galaxy and I can take you for a ride`;
+  }
+  return "🎵 Lyrics not available.";
 }
 
 

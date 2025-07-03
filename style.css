@@ -342,6 +342,45 @@ body {
   color: #1db954; /* Màu xanh lá Spotify */
 }
 
+.right-song-panel {
+   position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  bottom: 60px;
+  background: #82b7e5;
+  color: white;
+  padding: 20px;
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  z-index: 1000;
+}
+.right-song-panel.hidden {
+  display: none;
+}
+.right-song-panel img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.right-song-panel h3, .right-song-panel p {
+  margin: 5px 0;
+}
+.right-song-panel audio {
+  width: 100%;
+  margin: 10px 0;
+}
+.right-song-panel .lyrics {
+  margin-top: 10px;
+}
+.right-song-panel .lyrics h4 {
+  margin-bottom: 5px;
+}
+.right-song-panel .lyrics p {
+  font-size: 14px;
+  white-space: pre-wrap;
+}
+
 
 .hidden {
   display: none;
