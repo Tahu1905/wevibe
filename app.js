@@ -94,7 +94,7 @@ const playlists = [
   },
   {
     name: "LAST SWEET",
-    image: "/img/sojulove.webp",
+    image: "img/sojulove.webp",
     songs: [
       { name: "Can We Love", artist: "Obito", file: "/music/can_we_love.mp3", image: "…" }
       // Có thể thêm các track khác nếu có thông tin thêm
