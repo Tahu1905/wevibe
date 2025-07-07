@@ -3,57 +3,94 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to top, #edeff0, #42a5f5);
   color: #123;
+    margin-top: 60px; 
 }
 
 .container {
   display: flex;
   height: 100vh;
   overflow: hidden;
+    margin-top: 60px; 
+}
+.content.with-right-panel {
+  margin-right: 300px;
+   transition: margin-right 0.3s ease;
 }
 .container h2{
   margin-left: 10px;
 }
-.wevibe-heading {
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: hsl(205, 63%, 66%);
+  color: white;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+/* Gộp trái: logo + home */
+.header-left {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
+/* Logo và chữ */
+.wevibe-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+/* Logo nhỏ lại */
 .wevibe-logo {
-  width: 50px;  /* TO HƠN CHỮ */
-  height: 50px;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  width: 32px;
+  height: 32px;
+  margin-top: 0;
 }
 
+/* Chữ logo */
 .wevibe-text {
-   font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   background: linear-gradient(90deg, #007cf0, #00dfd8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: fadeIn 1s ease-in-out;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   letter-spacing: 1px;
 }
 
+/* Nút home */
+#homeBtn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
 
+/* Search bar */
 .search-bar {
   position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin-top: 10px;
-  margin-bottom: 16px;
+  width: 400px;
+  max-width: 100%;
 }
 
 .search-bar input {
-  width: 50%;
-  padding: 10px 40px 10px 36px; /* chừa chỗ bên trái cho icon */
+  width: 100%;
+  padding: 8px 40px 8px 36px;
   border-radius: 20px;
   border: 1px solid #aaa;
   font-size: 14px;
-  outline: none;
   background: rgb(110, 183, 251);
   color: #044;
 }
@@ -67,18 +104,18 @@ body {
   font-size: 16px;
 }
 
+/* Avatar người dùng */
 .user-menu {
-  position: absolute;
-  top: 15px;
-  right: 20px;
+  position: relative;
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   cursor: pointer;
 }
+
 
 .dropdown {
   position: absolute;
@@ -342,18 +379,17 @@ body {
   color: #1db954; /* Màu xanh lá Spotify */
 }
 
+
 .right-song-panel {
-   position: fixed;
-  top: 0;
+  position: fixed;
+  top: 60px;  /* đẩy panel xuống dưới header */
   right: 0;
   width: 300px;
-  bottom: 60px;
-  background: #82b7e5;
-  color: white;
+  height: calc(100% - 60px);  /* để panel không vượt quá màn hình */
+  background-color: #91c3eb;
   padding: 20px;
-  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.5);
   overflow-y: auto;
-  z-index: 1000;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
 }
 .right-song-panel.hidden {
   display: none;
@@ -380,6 +416,79 @@ body {
   font-size: 14px;
   white-space: pre-wrap;
 }
+#right-audio-player {
+  display: none;
+}
+.expand-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Hiện nút khi hover vào panel */
+.right-song-panel:hover .expand-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.expand-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.right-song-panel.expanded {
+    position: fixed;
+  top: 60px;       /* chừa chỗ header (logo + home + search + tabs) */
+  left: 0;
+  width: 100vw;
+  bottom: 60px;    /* chừa chỗ now–playing bar */
+  background: #82b7e5;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  z-index: 999;    /* cao hơn nội dung nhưng thấp hơn header/bar nếu cần */
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* Mặc định ẩn icon */
+.right-song-panel .hover-controls {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Khi hover vào panel thì hiện icon */
+.right-song-panel:hover .hover-controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Style icon */
+.hover-controls i {
+  font-size: 20px;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.hover-controls i:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
 
 
 .hidden {
@@ -514,209 +623,3 @@ body {
   background-color: #85cbe9;
   color: white;
 }
-/* Popup nền phủ màn hình */
-.login-popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.login-popup.hidden {
-  display: none;
-}
-
-/* Container chính của popup */
-#popupContainer {
-  background-color: #e3f2fd; /* pastel blue */
-  border-radius: 30px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-  width: 768px;
-  max-width: 100%;
-  min-height: 480px;
-  color: #0d47a1;
-}
-
-#popupContainer p,
-#popupContainer span,
-#popupContainer a {
-  color: #0d47a1;
-}
-
-#popupContainer button {
-  background: linear-gradient(to right, #64b5f6, #42a5f5);
-  color: #fff;
-  font-size: 12px;
-  padding: 10px 45px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-#popupContainer button.hidden {
-  background-color: transparent;
-  border: 1px solid #90caf9;
-  color: #0d47a1;
-}
-
-#popupContainer form {
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 40px;
-  height: 100%;
-}
-
-#popupContainer input {
-  background-color: #ffffff;
-  border: 1px solid #bbdefb;
-  margin: 8px 0;
-  padding: 10px 15px;
-  font-size: 13px;
-  border-radius: 8px;
-  width: 100%;
-  outline: none;
-  color: #0d47a1;
-}
-.form-container {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 50%;
-  transition: all 0.6s ease-in-out;
-}
-
-/* Sign In form hiển thị trước */
-.sign-in {
-  left: 0;
-  z-index: 2;
-  transform: translateX(0%);
-  opacity: 1;
-  pointer-events: all;
-}
-
-#popupContainer.active .sign-in {
-  transform: translateX(100%);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-/* SIGN UP FORM */
-.sign-up {
-  left: 0;
-  transform: translateX(100%);
-  z-index: 1;
-  opacity: 0;
-  pointer-events: none;
-}
-
-#popupContainer.active .sign-up {
-  transform: translateX(0%);
-  z-index: 2;
-  opacity: 1;
-  pointer-events: all;
-}
-
-
-@keyframes move {
-  0%, 49.99% {
-    opacity: 0;
-    z-index: 1;
-  }
-  50%, 100% {
-    opacity: 1;
-    z-index: 5;
-  }
-}
-
-.social-icons {
-  margin: 20px 0;
-}
-
-.social-icons a {
-  border: 1px solid #90caf9;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 3px;
-  width: 40px;
-  height: 40px;
-  color: #1565c0;
-  background-color: #ffffff;
-}
-
-.toggle-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  transition: all 0.6s ease-in-out;
-  border-radius: 150px 0 0 100px;
-  z-index: 1000;
-}
-
-#popupContainer.active .toggle-container {
-  transform: translateX(-100%);
-  border-radius: 0 150px 100px 0;
-}
-
-.toggle {
-  background: linear-gradient(to right, #90caf9, #42a5f5);
-  color: #fff;
-  position: relative;
-  left: -100%;
-  height: 100%;
-  width: 200%;
-  transform: translateX(0);
-  transition: all 0.6s ease-in-out;
-}
-
-#popupContainer.active .toggle {
-  transform: translateX(50%);
-}
-
-.toggle-panel {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0 30px;
-  text-align: center;
-  top: 0;
-  transform: translateX(0);
-  transition: all 0.6s ease-in-out;
-}
-
-.toggle-left {
-  transform: translateX(-200%);
-}
-
-#popupContainer.active .toggle-left {
-  transform: translateX(0);
-}
-
-.toggle-right {
-  right: 0;
-  transform: translateX(0);
-}
-
-#popupContainer.active .toggle-right {
-  transform: translateX(200%);
-}  

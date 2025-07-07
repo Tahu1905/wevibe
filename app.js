@@ -1,88 +1,104 @@
 const playlists = [
   {
-    name: "Chill Vibes",
-    image: "download (1).jpg",
+    name: "Ai Cũn Phải Bắt Đầu Từ Đâu Đó",
+    image: "/img/hieuthuhai.jpg",
     songs: [
-      {
-        name: "Shape of You",
-        artist: "Ed Sheeran",
-        file: "/music/shape.mp3",
-        image: "https://i.scdn.co/image/ab67616d0000b2732c8a3db49f7dc0e3f0e5c8cf"
+      { name: "Mamma Mia", 
+        artist: "HIEUTHUHAI", 
+        file: "/music/mamma_mia.mp3", 
+        image: "…" 
+      
       },
-      {
-        name: "Blinding Lights",
-        artist: "The Weeknd",
-        file: "/music/blinding.mp3",
-        image: "https://i.scdn.co/image/ab67616d0000b273e0e197144582a6f3606b5c51"
-      }
+      { name: "Hẹn Gặp Em Dưới Ánh Trăng", 
+        artist: "HIEUTHUHAI",
+        file: "/music/hen_gap_em.mp3",
+        image: "…",
+        lyrics: `"Vì anh muốn vào ngày mai ta Cùng nhau sánh bước mặc bao ánh mắt
+                Ngoài những lời nói làm đầy tai ra
+                Em là duy nhất anh không thể đánh mất
+                Đôi mắt hướng về em một chút thôi mà thời gian trôi em rạng ngời
+                Ngắm nhìn em thêm một phút thôi mà đôi môi mang nụ cười”`,
+        credits: [
+        { name: "HIEUTHUHAI", roles: "Performer" },
+        { name: "HURRYKNG", roles: "Performer" },
+        { name: "MANBO", roles: "Performer" },
+        { name: "Lam Bach Phuc Hau", roles: "Songwriter" },
+        { name: "Trần Minh Hiếu", roles: "Songwriter" },
+        { name: "Pham Bao Khang", roles: "Songwriter" },
+        ] 
+      },
+      { name: "Không Thể Say", 
+        artist: "HIEUTHUHAI",
+        file: "/music/khong_the_say.mp3", 
+        image: "…" },
+      { name: 
+        "Exit Sign", 
+        artist: "HIEUTHUHAI",
+        file: "/music/exit_sign.mp3",
+        image: "…" },
+
     ]
   },
   {
-    name: "My Favorites",
-    image: "pngtree-love-song-icon-png-image_2036603.jpg",
+    name: "Gabriel",
+    image: "/img/Gabriel.webp",
     songs: [
-      {
-        name: "Levitating",
-        artist: "Dua Lipa",
-        file: "/music/levitating.mp3",
-        image: "https://i.scdn.co/image/ab67616d0000b2737eac173c065d1d9ef0c39e9e"
-      }
+      { name: "Somebody", 
+        artist: "keshi",
+        file: "/music/somebody.mp3", 
+        lyrics: `"You're somebody I just met tonight…”`,
+        credits: [
+          { name: "Keshi", roles: "Artist / Producer / Writer" },
+          { name: "Chloe George", roles: "Writer" }
+        ],
+        image: "…" },
+      { name: "Westside", 
+        artist: "keshi", 
+        file: "/music/westside.mp3", 
+        image: "…" },
+      { name: "Understand", 
+        artist: "keshi", 
+        ile: "/music/understand.mp3", 
+        image: "…" },
+      { name: "Limbo", 
+        artist: "keshi", 
+        file: "/music/limbo.mp3", 
+        image: "…" },
+      ]
+  },
+  {
+    name: "LOI CHOI: The Neo Pop Punk",
+    image: "/img/loichoi.webp",
+    songs: [
+      { name: "Phóng Đổ Tim Em", 
+        artist: "Wren Evans & itsnk", 
+        file: "/music/phong_do_tim_em.mp3", 
+        image: "…" },
+      { name: "Call Me", 
+        artist: "Wren Evans & itsnk", 
+        file: "/music/call_me.mp3", 
+        image: "…" },
+      { name: "Cầu Vĩnh Tuy", 
+        artist: "Wren Evans & itsnk", 
+        file: "/music/cau_vinh_tuy.mp3", 
+        image: "…" },
+      { name: "Từng Quen", 
+        artist: "Wren Evans & itsnk", 
+        file: "/music/tung_quen.mp3", 
+        image: "…" },
+      { name: "Bé Ơi Từ Từ", 
+        artist: "Wren Evans & itsnk", 
+        file: "/music/be_oi_tu_tu.mp3", 
+        image: "…" },
     ]
   },
-   {
-    name: "Focus Mode",
-    image: "download (1).jpg",
-    songs: []
-  },
   {
-    name: "EDM Hits",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Lo-fi Study",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Piano Classics",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Rainy Moods",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Jazz & Chill",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Kpop Top",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Vietnam Chill",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Pop 2024",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Rock Ballads",
-    image: "download (1).jpg",
-    songs: []
-  },
-  {
-    name: "Sleep Sounds",
-    image: "download (1).jpg",
-    songs: []
+    name: "LAST SWEET",
+    image: "/img/sojulove.webp",
+    songs: [
+      { name: "Can We Love", artist: "Obito", file: "/music/can_we_love.mp3", image: "…" }
+      // Có thể thêm các track khác nếu có thông tin thêm
+    ]
   }
 ];
 
@@ -97,7 +113,7 @@ function loadSidebar() {
   });
 }
 function renderAllSongs() {
-  const songView = document.getElementById("song-view");
+  const allSongsView = document.getElementById("all-songs-view");
   const titleEl = document.getElementById("playlist-title");
   const list = document.getElementById("song-list");
 
@@ -113,11 +129,11 @@ function renderAllSongs() {
     });
   });
 
-  // Hiển thị danh sách
+  // Hiển thị danh sách bài hát
   document.getElementById("playlist-grid").style.display = "none";
-  songView.classList.remove("hidden");
+  document.getElementById("song-view").classList.add("hidden");
+  allSongsView.classList.remove("hidden");
 }
-
 
 function renderPlaylistGrid() {
   const grid = document.getElementById("playlist-grid");
@@ -130,9 +146,8 @@ function renderPlaylistGrid() {
     grid.appendChild(card);
   });
 }
-
 function playSong(song) {
-  // Now playing bar
+  // Cập nhật thanh Now Playing
   document.getElementById("now-title").textContent = song.name;
   document.getElementById("now-artist").textContent = song.artist;
   document.getElementById("now-album").src = song.image;
@@ -141,16 +156,81 @@ function playSong(song) {
   audio.src = song.file;
   audio.play();
 
-  // 👉 Panel bên phải
-  document.getElementById("right-song-img").src = song.image;
-  document.getElementById("right-song-title").textContent = song.name;
-  document.getElementById("right-song-artist").textContent = song.artist;
-  document.getElementById("right-audio-player").src = song.file;
+  // 👉 Hiển thị ở phần nội dung chính
+  document.getElementById("song-img").src = song.image;
+  document.getElementById("song-title").textContent = song.name;
+  document.getElementById("song-artist").textContent = song.artist;
+  document.getElementById("lyrics-text").textContent = song.lyrics || getLyricsFor(song.name, song.artist);
 
-  document.getElementById("right-lyrics").textContent = getLyricsFor(song.name, song.artist);
 
-  document.getElementById("rightSongPanel").classList.remove("hidden");
+  document.getElementById("song-view").classList.remove("hidden");
+  document.getElementById("playlist-grid").style.display = "none";
+  document.getElementById("all-songs-view")?.classList?.add("hidden");
+  document.getElementById("main-heading")?.classList.add("hidden");
+
+// Cập nhật panel bên phải
+document.getElementById("right-banner-img").src = song.image;
+document.getElementById("right-song-title").textContent = song.name;
+document.getElementById("right-song-artist").textContent = song.artist;
+document.getElementById("right-lyrics").textContent = song.lyrics || getLyricsFor(song.name, song.artist);
+document.getElementById("rightSongPanel").classList.remove("hidden");
+
+// Hiện panel
+document.getElementById("rightSongPanel").classList.remove("hidden");
+
+// 👉 Cập nhật phần Credits
+const creditList = document.getElementById("credits-list");
+creditList.innerHTML = ""; // Xóa cũ
+
+if (song.credits && song.credits.length > 0) {
+  song.credits.forEach(credit => {
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>${credit.name}</strong> – ${credit.roles}`;
+    creditList.appendChild(li);
+  });
+} else {
+  creditList.innerHTML = "<li>No credits available</li>";
 }
+
+// Lưu trạng thái yêu thích
+if (!window.favorites) window.favorites = new Set();
+const favBtn = document.getElementById("song-fav-toggle");
+if (favorites.has(song.name)) {
+  favBtn.classList.remove("fa-plus-circle");
+  favBtn.classList.add("fa-check-circle");
+} else {
+  favBtn.classList.remove("fa-check-circle");
+  favBtn.classList.add("fa-plus-circle");
+}
+window.currentSongForFav = song;
+}
+function toggleFavorite() {
+  const song = window.currentSongForFav;
+  if (!song) return;
+
+  const favBtn = document.getElementById("song-fav-toggle");
+
+  if (favorites.has(song.name)) {
+    favorites.delete(song.name);
+    favBtn.classList.remove("fa-check-circle");
+    favBtn.classList.add("fa-plus-circle");
+  } else {
+    favorites.add(song.name);
+    favBtn.classList.remove("fa-plus-circle");
+    favBtn.classList.add("fa-check-circle");
+  }
+}
+
+function togglePanelSize() {
+  const panel = document.getElementById("rightSongPanel");
+  const icon = panel.querySelector(".expand-btn");
+
+  panel.classList.toggle("expanded");
+  icon.classList.toggle("fa-expand");
+  icon.classList.toggle("fa-compress");
+}
+
+
 
 function getLyricsFor(name, artist) {
   if (name === "Shape of You") {
@@ -166,23 +246,30 @@ function getLyricsFor(name, artist) {
 
 function loadPlaylist(index) {
   const pl = playlists[index];
+
+  // Cập nhật tiêu đề
   document.getElementById("playlist-title").innerText = pl.name;
+
+  // Danh sách bài hát
   const list = document.getElementById("song-list");
   list.innerHTML = "";
+
   pl.songs.forEach(song => {
     const li = document.createElement("li");
-    li.innerText = `${song.name} - ${song.artist}`;
-    li.onclick = () => playSong(song, pl.image);
+    li.innerText = `${song.name} – ${song.artist}`;
+    li.onclick = () => playSong(song); // Click vào bài nào mới phát bài đó
     list.appendChild(li);
   });
-  document.getElementById("song-view").classList.remove("hidden");
+
+  // Hiện phần danh sách bài hát
+  document.getElementById("all-songs-view")?.classList.remove("hidden");
+
+  // Ẩn các phần khác
   document.getElementById("playlist-grid").style.display = "none";
+  document.getElementById("song-view")?.classList?.add("hidden");
+  document.getElementById("rightSongPanel")?.classList?.add("hidden");
 }
 
-function backToPlaylists() {
-  document.getElementById("song-view").classList.add("hidden");
-  document.getElementById("playlist-grid").style.display = "grid";
-}
 
 loadSidebar();
 renderPlaylistGrid();
@@ -195,16 +282,19 @@ function showTab(tabName) {
 
   const grid = document.getElementById("playlist-grid");
   const songView = document.getElementById("song-view");
+  const allSongsView = document.getElementById("all-songs-view"); // Thêm dòng này
 
   if (tabName === "playlists") {
     grid.style.display = "grid";
     songView.classList.add("hidden");
+    allSongsView.classList.add("hidden"); // Ẩn all songs
   } else if (tabName === "songs") {
-    renderAllSongs();
+    renderAllSongs(); // Gọi hàm render
   } else {
-    // Nếu có tab artists sau này
+    // Nếu sau này có artists
     grid.style.display = "none";
     songView.classList.add("hidden");
+    allSongsView.classList.add("hidden");
   }
 }
 
@@ -252,19 +342,25 @@ function submitNewPlaylist() {
   document.getElementById("createPlaylistPanel").classList.add("hidden");
 }
 function goHome() {
+  // Ẩn các view phụ
   document.getElementById("createPlaylistPanel")?.classList.add("hidden");
+  document.getElementById("song-view")?.classList.add("hidden");
+  document.getElementById("rightSongPanel")?.classList.add("hidden");
+  document.getElementById("all-songs-view")?.classList.add("hidden");
+
+  // Hiện lại lưới playlist
+  document.getElementById("playlist-grid").style.display = "grid";
+
+  // Reset tab tiêu đề nếu có
+  document.querySelectorAll(".tabs .tab").forEach(t => t.classList.remove("active"));
+  const playlistTab = Array.from(document.querySelectorAll(".tabs .tab"))
+    .find(t => t.textContent.toLowerCase() === "playlists");
+  if (playlistTab) playlistTab.classList.add("active");
+
+  // Đặt lại tiêu đề chính nếu cần
+  const title = document.querySelector(".content h2");
+  if (title) title.textContent = "ALL Playlists";
 }
-const audio = document.getElementById("player");
-const progressBar = document.getElementById("progress-bar");
-
-audio.addEventListener("timeupdate", () => {
-  progressBar.value = audio.currentTime;
-  progressBar.max = audio.duration;
-});
-
-progressBar.addEventListener("input", () => {
-  audio.currentTime = progressBar.value;
-});
 
 function toggleUserDropdown() {
   const dropdown = document.getElementById("userDropdown");
@@ -278,36 +374,4 @@ window.addEventListener("click", function (e) {
   if (!avatar.contains(e.target) && !dropdown.contains(e.target)) {
     dropdown.classList.add("hidden");
   }
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const loginPopup = document.getElementById("loginPopup");
-  const popupContainer = document.getElementById("popupContainer");
-  const registerBtn = document.getElementById("signUpToggle");
-  const loginBtn = document.getElementById("signInToggle");
-
-  // Mở popup mặc định Sign In
-  function login() {
-    loginPopup.classList.remove("hidden");
-    popupContainer.classList.remove("active");
-  }
-
-  window.login = login;
-
-  registerBtn.addEventListener("click", () => {
-    popupContainer.classList.add("active"); // hiện Sign Up
-  });
-
-  loginBtn.addEventListener("click", () => {
-    popupContainer.classList.remove("active"); // trở lại Sign In
-  });
-
-  window.addEventListener("click", function (e) {
-    if (
-      loginPopup &&
-      !popupContainer.contains(e.target) &&
-      !e.target.closest(".user-menu")
-    ) {
-      loginPopup.classList.add("hidden");
-    }
-  });
 });

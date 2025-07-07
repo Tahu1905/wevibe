@@ -9,20 +9,36 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+ <header class="main-header">
+  <div class="header-left">
+    <img src="/img/Wevibe-removebg-preview.png" alt="Wevibe Logo" class="wevibe-logo" />
+    <span class="wevibe-text">Wevibe</span>
+    <button id="homeBtn" onclick="goHome()" aria-label="Go Home">
+      <i class="fas fa-home"></i>
+    </button>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="What do you want to play?" />
+    <i class="fas fa-search search-icon"></i>
+  </div>
+
+  <div class="user-menu">
+    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Avatar" class="user-avatar" onclick="toggleUserDropdown()" />
+    <div class="dropdown hidden" id="userDropdown">
+      <a href="#"><i class="fas fa-user"></i> Profile</a>
+      <a href="#"><i class="fas fa-star"></i> Upgrade</a>
+      <a href="#"><i class="fas fa-gear"></i> Settings</a>
+     <a href="#" id="loginLink"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <a href="#"><i class="fas fa-right-from-bracket"></i> Logout</a>
+    </div>
+  </div>
+</header>
+
+
   <div class="container">
    <aside class="sidebar">
-<h2 class="wevibe-heading">
-  <img src="Wevibe-removebg-preview.png" alt="Wevibe Logo" class="wevibe-logo" />
-  <span class="wevibe-text">Wevibe</span>
-  
-</h2>
-
-
-  <button id="homeBtn" onclick="goHome()" aria-label="Go Home">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-      </svg>
-    </button>
+ 
 
   <div class="sidebar-tabs-horizontal">
   <button class="tab active" onclick="selectSidebarTab('playlists')">Playlists</button>
@@ -43,25 +59,37 @@
 </aside>
 
     <main class="content">
-        <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="What do you want to play?" oninput="filterPlaylists()" />
-           <i class="fas fa-search search-icon"></i>
-        </div>
       <div class="tabs">
   <button class="tab active" onclick="showTab('playlists')">Playlists</button>
   <button class="tab" onclick="showTab('songs')">Songs</button>
   <button class="tab" onclick="showTab('artists')">Artists</button>
 </div>
-      <h2>ALL Playlists</h2>
+      <h2 id="main-heading">ALL Playlists</h2>
     <audio id="player"></audio>
 
       <div class="playlist-grid" id="playlist-grid"></div>
+    <div id="all-songs-view" class="hidden">
+  <h2 id="playlist-title">All Songs</h2>
+  <ul id="song-list" class="song-list"></ul>
+</div>
+     <div id="song-view" class="hidden">
+  <div class="song-detail">
+    <img id="song-img" src="" alt="Album Art">
+    <h3 id="song-title">Tiêu đề bài hát</h3>
+    <p id="song-artist">Tên nghệ sĩ</p>
+    
 
-      <div id="song-view" class="hidden">
-        <h2 id="playlist-title"></h2>
-        <ul id="song-list"></ul>
-      </div>
-      
+    <div class="hover-controls">
+      <i class="fas fa-play-circle"></i>
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-ellipsis-h"></i>
+    </div>
+    <div class="lyrics">
+      <h4>Lyrics</h4>
+      <p id="lyrics-text">🎵 Đang tải lời bài hát...</p>
+    </div>
+</div>
+
     </main>
   </div>
 
@@ -100,14 +128,39 @@
   </div>
 </div>
 <div id="rightSongPanel" class="right-song-panel hidden">
-  <img id="right-song-img" src="" alt="Album Art">
-  <h3 id="right-song-title">Tiêu đề bài hát</h3>
-  <p id="right-song-artist">Tên nghệ sĩ</p>
-  <audio id="right-audio-player" controls></audio>
-  <div class="lyrics">
-    <h4>Lyrics</h4>
-    <p id="right-lyrics">🎵 Đang tải lời bài hát...</p>
+  <div class="media-header">
+    <img id="right-banner-img" src="" alt="Album Banner" />
+    
+    <div class="song-info-text">
+      <h2 id="right-song-title">Song Title</h2>
+      <p id="right-song-artist">Artist</p>
+    </div>
+    <div class="hover-controls">
+    <i class="fas fa-expand expand-btn" onclick="togglePanelSize()"></i>
+    <i class="fas fa-share-alt" onclick="alert('📤 Chia sẻ bài hát!')"></i>
+    <i id="song-fav-toggle" class="fas fa-plus-circle" onclick="toggleFavorite()"></i>
   </div>
+  </div>
+
+  <div class="artist-section">
+    <img id="artist-avatar" src="" alt="Artist Avatar" class="avatar" />
+    <div class="artist-info">
+      <h3 id="artist-name">Artist Name</h3>
+      <p id="artist-stats">2,419,183 monthly listeners</p>
+      <p id="artist-desc">Artist description here...</p>
+    </div>
+  </div>
+
+  <div class="credits">
+    <h4>Credits</h4>
+    <ul id="credits-list">
+      <li><strong>10CM</strong> – Main Artist, Composer, Lyricist, Arranger</li>
+      <li>이요한 – Arranger</li>
+      <li>성수용 – Arranger</li>
+    </ul>
+  </div>
+  
+
 </div>
 
 
@@ -126,77 +179,14 @@
   <button onclick="submitNewPlaylist()">Create</button>
 </div>
 
+  <div class="lyrics">
+    <h4>Lyrics</h4>
+    <p id="right-lyrics">🎵 Đang tải lời bài hát...</p>
+  </div>
+</div>
+
+
   <script src="app.js"></script>
-<div class="user-menu">
-  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User Avatar" class="user-avatar" onclick="toggleUserDropdown()" />
-  <div class="dropdown hidden" id="userDropdown">
-    <a href="#"><i class="fas fa-user"></i> Profile</a>
-    <a href="#"><i class="fas fa-star"></i> Upgrade</a>
-    <a href="#"><i class="fas fa-gear"></i> Settings</a>
-    <a href="#" onclick="login()"><i class="fas fa-sign-in-alt"></i> Login</a>
-    <a href="#"><i class="fas fa-right-from-bracket"></i> Logout</a>
-  </div>
-</div><!-- LOGIN / REGISTER POPUP -->
-
-<div class="login-register-popup login-popup hidden" id="loginPopup">
-  <div class="login-container" id="popupContainer">
-  
-    <!-- SIGN UP FORM -->
-    <div class="form-container sign-up">
-      <form>
-        <h1>Create Account</h1>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-google"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-        <span>or use your email for registration</span>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
-
-    <!-- SIGN IN FORM -->
-    <div class="form-container sign-in">
-      <form>
-        <h1>Sign In</h1>
-        <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-google"></i></a>
-          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-        <span>or use your email password</span>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <a href="#">Forgot Your Password?</a>
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
-
-    <!-- TOGGLE PANE -->
-   <div class="toggle-container">
-  <div class="toggle">
-    <div class="toggle-panel toggle-left">
-      <h1>Welcome Back!</h1>
-      <p>Enter your personal details to use all features</p>
-      <button id="signInToggle">Sign In</button> <!-- BỎ class="hidden" -->
-    </div>
-    <div class="toggle-panel toggle-right">
-      <h1>Hello, Friend!</h1>
-      <p>Register to use all features</p>
-      <button id="signUpToggle">Sign Up</button> <!-- BỎ class="hidden" -->
-    </div>
-  </div>
-</div>
-
-
-  </div> <!-- end #popupContainer -->
-</div>
-
 
 </body>
 </html>
