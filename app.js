@@ -1,7 +1,7 @@
 const playlists = [
   {
     name: "Ai Cũn Phải Bắt Đầu Từ Đâu Đó",
-    image: "/img/hieuthuhai.jpg",
+    image: "img/hieuthuhai.jpg",
     songs: [
       { name: "Mamma Mia", 
         artist: "HIEUTHUHAI", 
@@ -41,7 +41,7 @@ const playlists = [
   },
   {
     name: "Gabriel",
-    image: "/img/Gabriel.webp",
+    image: "img/Gabriel.webp",
     songs: [
       { name: "Somebody", 
         artist: "keshi",
@@ -68,7 +68,7 @@ const playlists = [
   },
   {
     name: "LOI CHOI: The Neo Pop Punk",
-    image: "/img/loichoi.webp",
+    image: "img/loichoi.webp",
     songs: [
       { name: "Phóng Đổ Tim Em", 
         artist: "Wren Evans & itsnk", 
