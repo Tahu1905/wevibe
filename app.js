@@ -5,7 +5,7 @@ const playlists = [
     songs: [
       { name: "Mamma Mia", 
         artist: "HIEUTHUHAI", 
-        file: "/music/mamma_mia.mp3", 
+        file: "mammamia.mp3", 
         image: "img/images.jpg" 
       
       },
