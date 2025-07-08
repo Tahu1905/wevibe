@@ -68,7 +68,10 @@ body {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   letter-spacing: 1px;
 }
-
+.main-heading h2
+{
+  fontsize: 16px;
+}
 /* Nút home */
 #homeBtn {
   background: none;
@@ -148,7 +151,6 @@ body {
 .hidden {
   display: none !important;
 }
-
 .sidebar {
   width: 300px;
   background: linear-gradient(to top, #edeff0, #3195e8);
@@ -498,6 +500,7 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  fontsize: 16px;
 }
 
 .tab {
@@ -519,6 +522,7 @@ body {
 .tab.active {
   background: #8fc8eb;
   color: white;
+  fontsize: 16px;
 }
 .playlist-header {
   display: flex;
@@ -527,6 +531,7 @@ body {
   margin: 10px 0 5px;
 }
 .playlist-header h3{
+  fontsize: 16px;
   margin-left: 3px;
 }
 
