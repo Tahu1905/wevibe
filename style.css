@@ -509,6 +509,7 @@ body {
   font-weight: 500;
   color: #044;
   transition: background 0.2s;
+  fontsize: 16px
 }
 
 .tab:hover {
