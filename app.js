@@ -1,17 +1,5 @@
 const playlists = [
   {
-    name: "LayLaLay",
-    image: "",
-    songs: [
-    name: "Bac Phan",
-    artist: "Jack-J97",
-      file: "",
-      image: ""
-     },
-    ]
-    
-  }
-  {
     name: "Ai Cũn Phải Bắt Đầu Từ Đâu Đó",
     image: "img/hieuthuhai.jpg",
     songs: [
