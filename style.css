@@ -12,13 +12,14 @@ body {
   overflow: hidden;
     margin-top: 60px; 
 }
+.main-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
 .content.with-right-panel {
   margin-right: 300px;
    transition: margin-right 0.3s ease;
-}
-.container h3{
-  margin-left: 10px;
-  fontsize: 16px;
 }
 
 .main-header {
@@ -36,6 +37,16 @@ body {
   padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.4);
 }
+.playlist-header h3,
+.content h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  padding: 8px 0;
+  line-height: 1.3;
+}
+
+
 
 /* Gộp trái: logo + home */
 .header-left {
@@ -149,6 +160,7 @@ body {
 .hidden {
   display: none !important;
 }
+
 .sidebar {
   width: 300px;
   background: linear-gradient(to top, #edeff0, #3195e8);
@@ -194,7 +206,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
-  font-size: 16px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -240,39 +252,83 @@ body {
   padding: 20px;
   overflow-y: auto;
   padding-top: 30px;
-  padding-bottom: 100px; /* chừa khoảng dưới cho thanh bar */
+  padding-bottom: 100px; 
 }
-.content h2
-{
-  fontsize: 16px;
-}
-.playlist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* nhỏ hơn */
-  gap: 12px;
-  margin-top: 20px;
+.playlist-group {
+  margin-bottom: 32px;
 }
 
+.playlist-group h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.playlist-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 
 .playlist-card {
-  background: #fff;
-  border-radius: 8px;
+  width: 150px;
+  background: #ffffff22;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid #b2e2df;
+  cursor: pointer;
   text-align: center;
-  width: 100%;
+  transition: transform 0.2s ease;
 }
-
+.playlist-card:hover {
+  transform: scale(1.05);
+}
 .playlist-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 150px;
   object-fit: cover;
 }
-
 .playlist-card .name {
-  font-size: 12px;
-  padding: 6px;
-  color: #044;
+  padding: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.artist-list, .sidebar-artist-item {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-artist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.sidebar-artist-item:hover {
+  background: rgba(255,255,255,0.2);
+}
+.sidebar-artist-item.active {
+  background: rgba(255,255,255,0.3);
+}
+
+
+.sidebar-artist-avatar {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.sidebar-artist-name {
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 
@@ -294,62 +350,99 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #99c5e7;
-  color: #123;
+  height: 80px;
+  background: #b3e5fc; /* pastel xanh dịu */
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  height: 40px;
-  font-size: 14px;
+  justify-content: space-between;
+  padding: 0 30px;
   z-index: 1000;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+   gap: 20px; 
 }
 
+/* === Left Section (Info) === */
 .now-left {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 30%;
+  max-width: 250px;
+  overflow: hidden;
+  flex: 1;
 }
 
 .now-left img {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .song-info {
   display: flex;
   flex-direction: column;
+  font-size: 13px;
+  overflow: hidden;
 }
 
 .song-info .title {
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #0d47a1;
 }
 
 .song-info .artist {
   font-size: 12px;
-  color: #aaa;
+  color: #1976d2;
 }
 
+/* === Center (Controls + Progress) === */
 .now-center {
+  flex: 2;
   display: flex;
+  left: 50%;
   flex-direction: column;
   align-items: center;
-  width: 40%;
+  gap: 8px;
+  margin-left: 60px;
 }
 
 .controls {
   display: flex;
-  gap: 16px;
-  font-size: 18px;
   align-items: center;
   justify-content: center;
+  gap: 14px;
 }
 
-.play-btn {
-  font-size: 30px;
+.control-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background-color:white;
+  color: #0d47a1;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.play-main {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  background-color: white;
+  color: #1976d2;
+  box-shadow: 0 4px 12px rgba(66, 165, 245, 0.3);
 }
 
 .progress {
@@ -362,38 +455,54 @@ body {
 .progress input[type="range"] {
   flex: 1;
   height: 4px;
-  accent-color: white;
+  accent-color: #1976d2;
 }
 
+/* === Right Section === */
 .now-right {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 14px;
-  width: 30%;
   justify-content: flex-end;
+  gap: 8px;
+}
+
+.now-right button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  color: #0d47a1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.now-right button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .volume-bar {
   width: 80px;
-  accent-color: white;
+  accent-color: #1976d2;
 }
-
-.active-icon {
-  color: #1db954; /* Màu xanh lá Spotify */
-}
-
 
 .right-song-panel {
-  position: fixed;
-  top: 60px;  /* đẩy panel xuống dưới header */
-  right: 0;
   width: 300px;
-  height: calc(100% - 60px);  /* để panel không vượt quá màn hình */
-  background-color: #91c3eb;
+  flex-shrink: 0;
+  background: #91c3eb;
   padding: 20px;
+  border-radius: 10px;
   overflow-y: auto;
   box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  height: 100%; /* 👈 CHỈNH TỪ fit-content thành 100% */
+  display: flex;
+  flex-direction: column;
 }
+
 .right-song-panel.hidden {
   display: none;
 }
@@ -480,8 +589,8 @@ body {
 /* Style icon */
 .hover-controls i {
   font-size: 20px;
-  color: black;
-  background: rbg(255,255,255);
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
@@ -492,16 +601,10 @@ body {
   background: rgba(255, 255, 255, 0.4);
 }
 
-
-
-.hidden {
-  display: none;
-}
 .tabs {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  fontsize: 16px;
 }
 
 .tab {
@@ -513,7 +616,6 @@ body {
   font-weight: 500;
   color: #044;
   transition: background 0.2s;
-  fontsize: 16px
 }
 
 .tab:hover {
@@ -523,17 +625,12 @@ body {
 .tab.active {
   background: #8fc8eb;
   color: white;
-  fontsize: 16px;
 }
 .playlist-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 10px 0 5px;
-}
-.playlist-header h3{
-  fontsize: 16px;
-  margin-left: 3px;
 }
 
 #addBtn {
@@ -605,13 +702,6 @@ body {
   align-items: center;
   margin-bottom: 12px;
 }
-
-.sidebar-header h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-}
-
 #homeBtn {
   background-color: #3a9dee;
   border: none;
@@ -630,3 +720,210 @@ body {
   background-color: #85cbe9;
   color: white;
 }
+.login-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.login-popup.hidden {
+  display: none;
+}
+
+/* Container chính của popup */
+#popupContainer {
+  background-color: #e3f2fd; /* pastel blue */
+  border-radius: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  color: #0d47a1;
+}
+
+#popupContainer p,
+#popupContainer span,
+#popupContainer a {
+  color: #0d47a1;
+}
+
+#popupContainer button {
+  background: linear-gradient(to right, #64b5f6, #42a5f5);
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 45px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#popupContainer button.hidden {
+  background-color: transparent;
+  border: 1px solid #90caf9;
+  color: #0d47a1;
+}
+
+#popupContainer form {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+#popupContainer input {
+  background-color: #ffffff;
+  border: 1px solid #bbdefb;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+  color: #0d47a1;
+}
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: all 0.6s ease-in-out;
+  overflow: hidden;
+}
+
+/* SIGN IN FORM */
+.sign-in {
+  left: 0;
+  z-index: 2;
+  transform: translateX(0%);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#popupContainer.active .sign-in {
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* SIGN UP FORM */
+.sign-up {
+  left: 50%;
+  z-index: 1;
+  transform: translateX(0%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#popupContainer.active .sign-up {
+  transform: translateX(0%);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+
+@keyframes move {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.social-icons {
+  margin: 20px 0;
+}
+
+.social-icons a {
+  border: 1px solid #90caf9;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+  color: #1565c0;
+  background-color: #ffffff;
+}
+
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 150px 0 0 100px;
+  z-index: 1000;
+}
+
+#popupContainer.active .toggle-container {
+  transform: translateX(-100%);
+  border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+  background: linear-gradient(to right, #90caf9, #42a5f5);
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+#popupContainer.active .toggle {
+  transform: translateX(50%);
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+  transform: translateX(-200%);
+}
+
+#popupContainer.active .toggle-left {
+  transform: translateX(0);
+}
+
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+#popupContainer.active .toggle-right {
+  transform: translateX(200%);
+} 
