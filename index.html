@@ -38,12 +38,13 @@
 
   <div class="container">
    <aside class="sidebar">
- 
+    
 
   <div class="sidebar-tabs-horizontal">
   <button class="tab active" onclick="selectSidebarTab('playlists')">Playlists</button>
-  <button class="tab" onclick="selectSidebarTab('songs')">Artists</button>
-  <button class="tab" onclick="selectSidebarTab('artists')">Albums</button>
+  <button class="tab" onclick="selectSidebarTab('artists')">Artists</button>
+  <button class="tab" onclick="selectSidebarTab('songs')">Albums</button>
+
   </div>
   <div class="playlist-header">
   <h3>Your Library</h3>
@@ -55,16 +56,19 @@
 </div>
  <div class="sidebar-scroll">
     <ul class="playlist-list" id="playlist-sidebar"></ul>
+    <ul id="sidebar-songs-view" class="song-list hidden"></ul>
+    <ul id="sidebar-artists-view" class="artist-list hidden"></ul>
   </div>
+  
 </aside>
-
+<div class="main-layout">
     <main class="content">
       <div class="tabs">
   <button class="tab active" onclick="showTab('playlists')">Playlists</button>
-  <button class="tab" onclick="showTab('songs')">Musics</button>
-  <button class="tab" onclick="showTab('artists')">Artists</button>
+  <button class="tab" onclick="showTab('songs')">V-Pop</button>
+  <button class="tab" onclick="showTab('artists')">US-UK</button>
 </div>
-      <h2 id="main-heading">ALL Playlists</h2>
+      <h2 id="main-heading">All Playlists</h2>
     <audio id="player"></audio>
 
       <div class="playlist-grid" id="playlist-grid"></div>
@@ -72,8 +76,9 @@
   <h2 id="playlist-title">All Songs</h2>
   <ul id="song-list" class="song-list"></ul>
 </div>
-     <div id="song-view" class="hidden">
-  <div class="song-detail">
+
+  <div id="song-view" class="hidden">
+    <div class="song-detail">
     <img id="song-img" src="" alt="Album Art">
     <h3 id="song-title">Tiêu đề bài hát</h3>
     <p id="song-artist">Tên nghệ sĩ</p>
@@ -88,81 +93,81 @@
       <h4>Lyrics</h4>
       <p id="lyrics-text">🎵 Đang tải lời bài hát...</p>
     </div>
-</div>
 
-    </main>
   </div>
+  </div>
+  </main> 
+
+  <div id="rightSongPanel" class="right-song-panel hidden">
+      <div class="media-header">
+        <img id="right-banner-img" src="" alt="Album Banner" />
+        <div class="song-info-text">
+          <h2 id="right-song-title">Song Title</h2>
+          <p id="right-song-artist">Artist</p>
+        </div>
+        <div class="hover-controls">
+          <i class="fas fa-expand expand-btn" onclick="togglePanelSize()"></i>
+          <i class="fas fa-share-alt" onclick="alert('📤 Chia sẻ bài hát!')"></i>
+          <i id="song-fav-toggle" class="fas fa-plus-circle" onclick="toggleFavorite()"></i>
+        </div>
+      </div>
+
+      <div class="artist-section">
+        <img id="artist-avatar" src="" alt="Artist Avatar" class="avatar" />
+        <div class="artist-info">
+          <h3 id="artist-name">Artist Name</h3>
+          <p id="artist-stats">2,419,183 monthly listeners</p>
+          <p id="artist-desc">Artist description here...</p>
+        </div>
+      </div>
+
+    </div> 
+</div>
+</div>
+</div> <!-- đóng container -->
+
+
+    <!-- ✅ vẫn nằm trong main.content -->
 
   <!-- Now Playing bar -->
-  <div class="now-playing-bar">
+<div class="now-playing-bar">
   <div class="now-left">
-  <img id="now-album" src="album.jpg" alt="Album Art">
-  <div class="song-info">
-    <span id="now-title" class="title">Song Title</span>
-    <span id="now-artist" class="artist">Artist</span>
+    <img id="now-album" src="album.jpg" alt="Album Art">
+    <div class="song-info">
+      <span id="now-title" class="title">Song Title</span>
+      <span id="now-artist" class="artist">Artist</span>
+    </div>
   </div>
-</div>
 
   <div class="now-center">
     <div class="controls">
-      <i class="fas fa-random"></i>
-      <i class="fas fa-step-backward"></i>
-      <i class="fas fa-play-circle play-btn"></i>
-      <i class="fas fa-step-forward"></i>
-      <i class="fas fa-comment-alt"></i>
-    </div>
+  <button class="control-btn"><i class="fas fa-random"></i></button>
+  <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+  <button class="control-btn play-main"><i class="fas fa-play"></i></button>
+  <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+  <button class="control-btn"><i class="fas fa-comment-alt"></i></button>
+  </div>
+
     <div class="progress">
-      <span class="current-time">0:00</span>
-      <input type="range" min="0" max="100" value="10">
-      <span class="duration">2:54</span>
+      <span class="current-time" id="currentTime">0:00</span>
+      <input type="range" id="progressBar" min="0" max="100" value="0">
+      <span class="duration" id="duration">0:00</span>
     </div>
   </div>
 
   <div class="now-right">
-    <i class="fas fa-desktop active-icon"></i>
-    <i class="fas fa-microphone"></i>
-    <i class="fas fa-bars"></i>
-    <i class="fas fa-volume-up"></i>
-    <input type="range" min="0" max="100" value="50" class="volume-bar">
-    <i class="fas fa-expand"></i>
+    <button><i class="fas fa-desktop active-icon"></i></button>
+    <button><i class="fas fa-microphone"></i></button>
+    <button><i class="fas fa-bars"></i></button>
+    <button><i class="fas fa-volume-up"></i></button>
+    <input type="range" min="0" max="100" value="50" class="volume-bar" id="volumeBar">
+    <button><i class="fas fa-expand"></i></button>
   </div>
 </div>
-<div id="rightSongPanel" class="right-song-panel hidden">
-  <div class="media-header">
-    <img id="right-banner-img" src="" alt="Album Banner" />
-    
-    <div class="song-info-text">
-      <h2 id="right-song-title">Song Title</h2>
-      <p id="right-song-artist">Artist</p>
-    </div>
-    <div class="hover-controls">
-    <i class="fas fa-expand expand-btn" onclick="togglePanelSize()"></i>
-    <i class="fas fa-share-alt" onclick="alert('📤 Chia sẻ bài hát!')"></i>
-    <i id="song-fav-toggle" class="fas fa-plus-circle" onclick="toggleFavorite()"></i>
-  </div>
-  </div>
 
-  <div class="artist-section">
-    <img id="artist-avatar" src="" alt="Artist Avatar" class="avatar" />
-    <div class="artist-info">
-      <h3 id="artist-name">Artist Name</h3>
-      <p id="artist-stats">2,419,183 monthly listeners</p>
-      <p id="artist-desc">Artist description here...</p>
-    </div>
-  </div>
-
-  <div class="credits">
-    <h4>Credits</h4>
-    <ul id="credits-list">
-      <li><strong>10CM</strong> – Main Artist, Composer, Lyricist, Arranger</li>
-      <li>이요한 – Arranger</li>
-      <li>성수용 – Arranger</li>
-    </ul>
-  </div>
-  
-
-</div>
-
+<!-- Audio player (ẩn) -->
+<audio id="mainAudio" src="your-song.mp3"></audio>
+ 
 
 <div id="createPlaylistPanel" class="create-panel hidden">
   <h3>Create New Playlist</h3>
@@ -178,15 +183,64 @@
 
   <button onclick="submitNewPlaylist()">Create</button>
 </div>
-
-  <div class="lyrics">
-    <h4>Lyrics</h4>
-    <p id="right-lyrics">🎵 Đang tải lời bài hát...</p>
-  </div>
-</div>
-
-
   <script src="app.js"></script>
 
+  <div class="login-popup hidden" id="loginPopup">
+  <div class="login-container" id="popupContainer">
+
+    <!-- SIGN IN FORM -->
+    <div class="form-container sign-in">
+      <form>
+        <h1>Sign In</h1>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-google"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email and password</span>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+
+    <!-- SIGN UP FORM -->
+    <div class="form-container sign-up">
+      <form>
+        <h1>Create Account</h1>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-google"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- TOGGLE PANEL -->
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected, please log in</p>
+          <button id="signInToggle">Sign In</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Hello, Friend!</h1>
+          <p>Register to start your journey</p>
+          <button id="signUpToggle">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
