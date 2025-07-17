@@ -354,9 +354,9 @@ function showTab(tabName) {
 }
 function renderSidebarArtists() {
   const artists = [
-    { name: 'HIEUTHUHAI', avatar: '/img/hieuthuhaiii.webp' },
-    { name: 'Sơn Tùng M-TP', avatar: '/img/sontung.jpg' },
-    { name: 'JustaTee', avatar: '/img/tee.webp' }
+    { name: 'HIEUTHUHAI', avatar: 'img/hieuthuhaiii.webp' },
+    { name: 'Sơn Tùng M-TP', avatar: 'img/sontung.jpg' },
+    { name: 'JustaTee', avatar: 'img/tee.webp' }
   ];
 
   const list = document.getElementById('sidebar-artists-view');
