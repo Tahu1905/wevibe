@@ -5,7 +5,7 @@ const playlists = [
     songs: [
       { name: "Mamma Mia", 
         artist: "HIEUTHUHAI",
-        artist_img: "/img/hieuthuhaiii.webp",  
+        artist_img: "img/hieuthuhaiii.webp",  
         file: "mammamia.mp3", 
         image: "images.jpg" 
       
@@ -24,14 +24,14 @@ const playlists = [
       },
       { name: "Không Thể Say", 
         artist: "HIEUTHUHAI",
-        artist_img: "/img/hieuthuhaiii.webp",  
+        artist_img: "img/hieuthuhaiii.webp",  
         file: "/music/khong_the_say.mp3", 
        image: "img/default.jpg"
  },
       { name: 
         "Exit Sign", 
         artist: "HIEUTHUHAI",
-         artist_img: "/img/hieuthuhaiii.webp",  
+         artist_img: "img/hieuthuhaiii.webp",  
         file: "/music/exit_sign.mp3",
        image: "img/default.jpg"
  },
@@ -354,9 +354,9 @@ function showTab(tabName) {
 }
 function renderSidebarArtists() {
   const artists = [
-    { name: 'HIEUTHUHAI', avatar: 'img/hieuthuhaiii.webp' },
-    { name: 'Sơn Tùng M-TP', avatar: 'img/sontung.jpg' },
-    { name: 'JustaTee', avatar: 'img/tee.webp' }
+    { name: 'HIEUTHUHAI', avatar: 'img/hieuthuhaiii.webp'},
+    { name: 'Sơn Tùng M-TP', avatar: 'img/sontung.jpg'},
+    { name: 'JustaTee', avatar: 'img/tee.webp'}
   ];
 
   const list = document.getElementById('sidebar-artists-view');
